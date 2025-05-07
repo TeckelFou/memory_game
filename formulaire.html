@@ -26,20 +26,26 @@
         <ul class ="formulaire">
             <li><label for="userName"> Nom d'utilisateur</label>
                <br> <input type="text" id="userName" name="userName" placeholder ="3 caractères minimum" required />
+                    <div class="error-message" id="error-username"></div>
             </li>
             <li><label for="mail"> E-Mail </label>
                 <br><input type="email" id="mail" name="mail" placeholder = "votre email" required />
+                <div class="error-message" id="error-mail"></div>
             </li>
             <li>
                 <label for="mdp"> Mot de passe </label>
                 <br><input type="password" id="mdp" name="mdp" placeholder ="Entrez votre mot de passe" required />
-                <br><small>6 carac, 1 cara spécial et 1 chiffre</small>
+                <div class="error-message" id="error-mdp"></div>
+                <small>6 caractères
+                   <br> 1 caractère spécial
+                   <br> 1 chiffre </small>
             </li>
             
             
             <li>
             <br><label for="confirmMdp"> Confirmez le mot de passe</label>
                 <br><input type="password" id="confirmMdp" name="confirmMdp" placeholder ="Confirmez votre mot de passe" required />
+                <div class="error-message" id="error-confirm"></div>
             </li>
             
             <div class="power-container">

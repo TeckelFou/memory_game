@@ -1,67 +1,76 @@
-//récupérer le formulaire 
+//récupérer et gère le formulaire, [ ] pour accéder à l'éelement par son nom
 function entryForm() {
+    //selection du formulaire
     const form = document.forms["formulaire"];
+    //recup des champs
     const userName = form["userName"];
     const email = form["mail"];
     const password = form["mdp"];
     const confirmPassword = form["confirmMdp"];
     
+
+    const errorUsername = document.getElementById("error-username");
+    const errorMail = document.getElementById("error-mail");
+    const errorMdp = document.getElementById("error-mdp");
+    const errorConfirm = document.getElementById("error-confirm");
     
 // event on clique sur confirmer (submit)
 form.addEventListener("submit", function (event) {
-
+//on se dis que le formulaire est valide et après on mettra les conditions false si y'a erreurs
 let formConfirm = true;
 
-//et c'est parti pour tout vérifier 
+// reset le formulaire à chaque soumission
+        errorUsername.textContent = "";
+        errorMail.textContent = "";
+        errorMdp.textContent = "";
+        errorConfirm.textContent = "";
 
-//mail
 //pour enlever les blancs, espaces etc et on regarde si c'est pas vide ou invalide
-const valeurMail = email.value.trim();
+        const valeurName = userName.value.trim();
+        const valeurMail = email.value.trim();
+        const valeurMdp = password.value.trim();
+        const valeurConfirm = confirmPassword.value.trim();
+
+//et c'est parti pour tout vérifier youpi
+//mail
+
 if (valeurMail ===""){
-        alert("Veuillez entrer un mail");
+        errorMail.textContent = "Veuillez entrer un email";
         formConfirm = false;
     }
+    //verifie email valide
 else if (!email.validity.valid) {
-        alert("Veuillez entrer un mail valide");
+        errorMail.textContent = "Veuillez entrer un email valide";
         formConfirm = false;
     }
 
 //nom utilisateur
-const valeurName = userName.value.trim();
-
 if (valeurName ==="") {
-        alert("Veuillez entrer un nom d'utilisateur");
+        errorUsername.textContent = "Veuillez entrer un nom d'utilisateur";
         formConfirm = false;
 
     }
-    else {
-const nameCara = valeurName.length >= 3;       
+    else if (valeurName.length < 3) {
+        errorUsername.textContent = "Au moins 3 caractères requis";
+        formConfirm = false;       
+    }
 
-if(!nameCara){
-    alert("Le nom d'utilisateur doit contenir au moins 3 caractères")
-    formConfirm = false;
-
-}
 //mdp + confirmer
-const valeurMdp = password.value.trim()
-const valeurConfirm = confirmPassword.value.trim()
-
-if (valeurMdp ==="" || valeurConfirm === "") {
-        alert("Veuillez entrer un mot de passe");
-        formConfirm = false;
-}
-else {
     const nbrMdp = /[\d]/.test(valeurMdp);
     const mdpCaraSpe = /[\W_]/.test(valeurMdp);
     const mdpCara = valeurMdp.length >= 6;
-
-if (!nbrMdp || !mdpCaraSpe || !mdpCara) {
-        alert("Le mot de passe doit contenir : 6 caractères - 1 chiffre - 1 caractère spécial");
+    
+if (valeurMdp ==="" || valeurConfirm === "") {
+        errorMdp.textContent = "Veuillez entrer un mot de passe";
         formConfirm = false;
 }
-
+else if(!nbrMdp || !mdpCaraSpe || !mdpCara) {
+        errorMdp.textContent = "Min. 6 caractères, 1 chiffre, 1 caractère spécial";
+        formConfirm = false;
+}
+//identiques ou pas
 if (valeurMdp !== valeurConfirm) {
-    alert("Les mots de passe ne correspondent pas");
+    errorConfirm.textContent = "Les mots de passe ne correspondent pas";
         formConfirm = false;
 }
    
@@ -70,27 +79,26 @@ if (!formConfirm){
     event.preventDefault();
 }
 if (formConfirm) {
+
+    //pour stock les différents profils sans écraser le précédent
+    //objet qui représente l'utilisateur
    
+const newUser = {"username": valeurName,
+    "mail": valeurMail,
+    "password": valeurMdp,
 
-    localStorage.setItem("username", valeurName);
-    localStorage.setItem("mail", valeurMail);
-    localStorage.setItem("password", valeurMdp);
+};
+//zou dans le localStorage, ils se différencient avec chaque nom entré
+localStorage.setItem(valeurName, JSON.stringify(newUser));
+  
+ //on met event prevent pour que la page ne quitte pas    
+event.preventDefault();
+alert("Inscription terminée !"); 
     
-        event.preventDefault();
-    alert("Inscription terminée !"); 
-
-    /*const mailStorage = JSON.parse(valeurMdp.get ('mail') || '[]'); 
-    mailStorage.push(valeurMail);
-    localStorage.set('mail', JSON.stringify(valeurMail));
-
-
-    console.log(mailStorage)*/
-localStorage.setItem(valeurMail, JSON.stringify(valeurMail));
+form.reset();
+        }
         
+    });
     
-}
-}
-}
-});
 }
 entryForm()
