@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'Sunny';
+    src: url('imagesMemory/Beauty\ Sunny.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('imagesMemory/Roboto-Regular.ttf') format('truetype');
+}
+.navig {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ed98b6;
+    align-items: center;
+}
+
+
+.navig li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #db4980;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    line-height: 3em;
+}
+.cadre {
+    background: #91cfda;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+h1{
+    font-family: 'Sunny', sans-serif;
+}
+.jeu {
+
+    display: grid;
+        grid-template-columns: repeat(4, 200px);
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+}
+
+.carte {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+    
+}
+
+.flip-box-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.carte.flipped .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.flip-box-front {
+    background-image: url('imagesMemory/dosCarte.jpg');
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.flip-box-back {
+    transform: rotateY(180deg);
+}
+
+.flip-box-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
