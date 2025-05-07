@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Sunny';
+    src: url('ressources/Beauty\ Sunny.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('ressources/Roboto-Regular.ttf') format('truetype');
+}
+
+body {
+    background: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h1 , h2 {
+    font-family: 'Sunny', sans-serif;
+    text-align: center;
+    
+}
+.cadre {
+    background: #91cfda;
+    
+    padding: 20px;
+    max-width: 600px;
+    text-align: left;
+    border-radius: 20px;
+}
+
+.navig {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ed98b6;
+}
+
+.navig li {
+    float: left;
+}
+
+.navig li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #db4980;
+}
