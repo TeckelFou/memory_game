@@ -54,7 +54,7 @@ if (valeurMdp ==="" || valeurConfirm === "") {
 else {
     const nbrMdp = /[\d]/.test(valeurMdp);
     const mdpCaraSpe = /[\W_]/.test(valeurMdp);
-    const mdpCara = valeurMdp.length >= 8;
+    const mdpCara = valeurMdp.length >= 6;
 
 if (!nbrMdp || !mdpCaraSpe || !mdpCara) {
         alert("Le mot de passe doit contenir : 6 caractères - 1 chiffre - 1 caractère spécial");
