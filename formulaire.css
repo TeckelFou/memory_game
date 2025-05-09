@@ -1,101 +1,110 @@
 @font-face {
-    font-family: 'Sunny';
-    src: url('ressources/Beauty\ Sunny.otf') format('truetype');
+  font-family: "Sunny";
+  src: url("ressources/Beauty\ Sunny.otf") format("truetype");
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('ressources/Roboto-Regular.ttf') format('truetype');
+  font-family: "Roboto";
+  src: url("ressources/Roboto-Regular.ttf") format("truetype");
 }
 body {
-    background: white;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    
+  background: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
 }
 .navig {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #ed98b6;
-    width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ed98b6;
+  width: 100%;
 }
 
 .navig li {
-    float: left;
+  float: left;
 }
 
 .navig li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 li a:hover {
-    background-color: #db4980;
+  background-color: #db4980;
 }
 .cadre {
-    background: #91cfda;
-    padding: 20px;
-    max-width: 600px;
-    text-align: left;
-    border-radius: 20px;
-    box-sizing: content-box;
-    width: 100%;
+  background: #91cfda;
+  padding: 20px;
+  max-width: 600px;
+  text-align: left;
+  border-radius: 20px;
+  box-sizing: content-box;
+  width: 100%;
 }
 .formulaire {
-    list-style-type: none;
-    
+  list-style-type: none;
 }
 h1 {
-    font-family: 'Sunny', sans-serif;
-    text-align: center;
-
+  font-family: "Sunny", sans-serif;
+  text-align: center;
 }
 
-input[type= text], [type= email], [type=password] {
-    width : 500px;
-    padding: 15px;
-    margin: 8px; 
-    border: 1px solid #ccc;
-    text-align: left;
+input[type="text"],
+[type="email"],
+[type="password"] {
+  width: 500px;
+  padding: 15px;
+  margin: 8px;
+  border: 1px solid #ccc;
+  text-align: left;
 }
 
-input[type=submit], [type=reset] {
-border-radius: 4px;
-border: none;
-font-size: 16px;
-cursor: pointer;
-padding: 10px;
+input[type="submit"],
+[type="reset"] {
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+.iconPasswordOn:hover, .iconPasswordOff:hover {
+cursor: pointer;
+}
+.iconPasswordOn, .iconPasswordOff{
+  max-width: 30px;
+}
+.iconPasswordOff{
+  display: none;
 }
 
-/*container {
+/*.barre {
     background-color: #2E424D;
-    width: 100%;
+    width: 500px;
     height: 15px;
     border-radius: 5px;
 }
 
-container #point {
+.barrePoint {
     background-color: #D73F40;
     width: 1%;
-    height: 100%;
+    height: 500px;
     border-radius: 5px;
     transition: 0.5s;
 }*/
