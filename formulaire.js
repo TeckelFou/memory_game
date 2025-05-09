@@ -2,6 +2,7 @@
 function entryForm() {
   //selection du formulaire
   const form = document.forms["formulaire"];
+  
   //recup des champs
   const userName = form["userName"];
   const email = form["mail"];
@@ -13,7 +14,7 @@ function entryForm() {
   const errorMdp = document.getElementById("error-mdp");
   const errorConfirm = document.getElementById("error-confirm");
 
-//pour voir le mot de passe (mais ca ne fonctionne qu'à moitié misère)
+//pour voir le mot de passe : on affiche et si on clique on cache 
 
 const eye = document.querySelector(".iconPasswordOn");
 const eyeoff = document.querySelector(".iconPasswordOff");
